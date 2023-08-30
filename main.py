@@ -1,6 +1,9 @@
 from mlProject import logger
 from mlProject.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from mlProject.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+from mlProject.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
+from mlProject.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
+
 
 logger.info("Welcome to our Custom Logger (cause when deployed on ec2, we don't have access to python logs through the terminal)")
 
@@ -28,6 +31,16 @@ STAGE_NAME = "Data Transformation stage"
 try:
    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
    data_ingestion = DataTransformationTrainingPipeline()
+   data_ingestion.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
+   
+STAGE_NAME = "Model Trainer stage"
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+   data_ingestion = ModelTrainerTrainingPipeline()
    data_ingestion.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:
