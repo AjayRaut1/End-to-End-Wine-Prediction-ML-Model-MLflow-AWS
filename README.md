@@ -120,7 +120,7 @@ export MLFLOW_TRACKING_PASSWORD=88050e0c2c067ebbe5d0589f98ea1f9723dd9c44
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
+    - Save the URI: 041830038805.dkr.ecr.ap-south-1.amazonaws.com/mlproj-wine-prediction
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -143,6 +143,8 @@ export MLFLOW_TRACKING_PASSWORD=88050e0c2c067ebbe5d0589f98ea1f9723dd9c44
 	sudo usermod -aG docker ubuntu
 
 	newgrp docker
+
+	docker --version (to verify docker installation)
 	
 # 6. Configure EC2 as self-hosted runner:
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
@@ -150,15 +152,15 @@ export MLFLOW_TRACKING_PASSWORD=88050e0c2c067ebbe5d0589f98ea1f9723dd9c44
 
 # 7. Setup github secrets:
 
-    AWS_ACCESS_KEY_ID=
+    AWS_ACCESS_KEY_ID = (Downloaded mlproj-user-access-keys csv file) 
 
-    AWS_SECRET_ACCESS_KEY=
+    AWS_SECRET_ACCESS_KEY = (Downloaded mlproj-user-access-keys csv file)
 
-    AWS_REGION = us-east-1
+    AWS_REGION = ap-south-1 (I am using Mumbai server)
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = 041830038805.dkr.ecr.ap-south-1.amazonaws.com (Use your's from step 3)
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = mlproj-wine-prediction (refer step 3)
 
 
 
