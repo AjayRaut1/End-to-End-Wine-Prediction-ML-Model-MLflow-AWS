@@ -1,3 +1,4 @@
+#Figured out that alpha : 0.2 and l1 ration : 0.1 gives best accuracy of model from experimenting different values in MlFlow UI
 ElasticNet:
-  alpha: 0.6
-  l1_ratio: 0.5
+  alpha: 0.2
+  l1_ratio: 0.1
